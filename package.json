@@ -1,0 +1,62 @@
+{
+  "name": "@flaminc/semantic-release-configs",
+  "description": "Common configs for semantic release",
+  "version": "0.0.0-development",
+  "author": "capitN.flam",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rimraf --glob github-publish.js npm-github-publish.js common/*.js *.tgz",
+    "format": "prettier --write .",
+    "lint": "eslint . && prettier --check .",
+    "pre-commit": "lint-staged",
+    "prepare": "husky",
+    "semantic-release": "semantic-release",
+    "type-check": "tsc --pretty --noEmit"
+  },
+  "bugs": "https://github.com/capitnflam/semantic-release-configs/issues",
+  "dependencies": {
+    "conventional-changelog-writer": "7.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.2.0",
+    "@commitlint/config-conventional": "19.1.0",
+    "@commitlint/types": "19.0.3",
+    "@flaminc/eslint-plugin": "1.2.0",
+    "@types/conventional-changelog-writer": "4.0.10",
+    "@types/node": "20.11.28",
+    "@types/semantic-release": "20.0.6",
+    "@types/validator": "13.11.9",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.2",
+    "prettier": "3.2.5",
+    "rimraf": "5.0.5",
+    "semantic-release": "23.0.3",
+    "syncpack": "12.3.0",
+    "typescript": "5.4.2",
+    "vitest": "1.4.0"
+  },
+  "files": [
+    "package.json",
+    "npm-github-publish.js",
+    "github-publish.js",
+    "common/commit-transform.js",
+    "common/plugins.js",
+    "common/types.js"
+  ],
+  "homepage": "https://github.com/capitnflam/semantic-release-configs#readme",
+  "license": "MIT",
+  "main": "github-publish.js",
+  "peerDependencies": {
+    "@semantic-release/changelog": ">=6.0.0",
+    "@semantic-release/commit-analyzer": ">=12.0.0",
+    "@semantic-release/git": ">=10.0.0",
+    "@semantic-release/github": ">=10.0.0",
+    "@semantic-release/npm": ">=12.0.0",
+    "@semantic-release/release-notes-generator": ">=12.0.0",
+    "semantic-release": ">=23.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "capitnflam/semantic-release-configs"
+}
