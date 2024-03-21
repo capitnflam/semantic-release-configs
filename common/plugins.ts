@@ -47,5 +47,10 @@ export const plugins = (withNPM: boolean) => [
         'release(version): Release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
     },
   ],
-  '@semantic-release/github',
+  [
+    '@semantic-release/github',
+    {
+      successComment: false,
+    },
+  ],
 ]
