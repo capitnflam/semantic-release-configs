@@ -7,40 +7,41 @@ const COMMIT_HASH_LENGTH = 7
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
 export const transform: Options.Transform = (commit, context) => {
-  const newCommit = { ...commit }
+  const commitDiff: typeof commit = {} as typeof commit
 
-  if (newCommit.notes) {
-    for (const note of newCommit.notes) {
-      note.title = 'Breaking changes'
+  if (commit.notes) {
+    commitDiff.notes = []
+    for (const note of commit.notes) {
+      commitDiff.notes.push({ ...note, title: 'Breaking changes' })
     }
   }
 
   if (
-    isTypes(newCommit.type) &&
-    types.types[newCommit.type] &&
-    (types.types[newCommit.type].changelog ||
-      (newCommit.notes && newCommit.notes.length > 0))
+    isTypes(commit.type) &&
+    types.types[commit.type] &&
+    (types.types[commit.type].changelog ||
+      (commit.notes && commit.notes.length > 0))
   ) {
-    newCommit['groupType'] =
+    commitDiff['groupType'] =
       // eslint-disable-next-line sonarjs/no-nested-template-literals
-      `${types.types[newCommit.type].emoji ? `${types.types[newCommit.type].emoji} ` : ''}${
-        types.types[newCommit.type].title
+      `${types.types[commit.type].emoji ? `${types.types[commit.type].emoji} ` : ''}${
+        types.types[commit.type].title
       }`
   } else {
     return false
   }
 
-  if (newCommit.scope === '*') {
-    newCommit.scope = ''
+  if (commit.scope === '*') {
+    commitDiff.scope = ''
   }
 
-  if (typeof newCommit['hash'] === 'string') {
-    newCommit['shortHash'] = newCommit['hash'].slice(0, COMMIT_HASH_LENGTH)
+  if (typeof commit['hash'] === 'string') {
+    commitDiff['shortHash'] = commit['hash'].slice(0, COMMIT_HASH_LENGTH)
   }
 
   const references: string[] = []
 
-  if (typeof newCommit.subject === 'string') {
+  if (typeof commit.subject === 'string') {
     let url = context.repository
       ? `${context.host}/${context.owner}/${context.repository}`
       : context.repoUrl
@@ -48,8 +49,8 @@ export const transform: Options.Transform = (commit, context) => {
     if (url) {
       url += '/issues/'
       // Issue URLs.
-      if (newCommit.subject) {
-        newCommit.subject = newCommit.subject.replace(
+      if (commit.subject) {
+        commitDiff.subject = commit.subject.replace(
           /#(\d+)/g,
           (_: unknown, issue: string) => {
             references.push(issue)
@@ -61,7 +62,7 @@ export const transform: Options.Transform = (commit, context) => {
 
     if (context.host) {
       // User URLs.
-      newCommit.subject = newCommit.subject.replace(
+      commitDiff.subject = commit.subject.replace(
         // eslint-disable-next-line security/detect-unsafe-regex
         /\B@([\da-z](?:-?[\da-z]){0,38})/g,
         `[@$1](${context.host}/$1)`,
@@ -69,12 +70,12 @@ export const transform: Options.Transform = (commit, context) => {
     }
   }
 
-  if (newCommit.references) {
+  if (commit.references) {
     // Remove references that already appear in the subject
-    newCommit.references = newCommit.references.filter(
+    commitDiff.references = commit.references.filter(
       (reference) => !references.includes(reference.issue),
     )
   }
 
-  return newCommit
+  return commitDiff
 }
