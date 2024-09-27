@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import { type Options } from 'conventional-changelog-writer'
 
 import { isTypes, types } from './types'
