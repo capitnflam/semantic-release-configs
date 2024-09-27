@@ -15,25 +15,25 @@
   },
   "bugs": "https://github.com/capitnflam/semantic-release-configs/issues",
   "dependencies": {
-    "conventional-changelog-writer": "7.0.1"
+    "conventional-changelog-writer": "8.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.2.0",
-    "@commitlint/config-conventional": "19.1.0",
-    "@commitlint/types": "19.0.3",
+    "@commitlint/cli": "19.5.0",
+    "@commitlint/config-conventional": "19.5.0",
+    "@commitlint/types": "19.5.0",
     "@flaminc/eslint-plugin": "1.3.0",
     "@types/conventional-changelog-writer": "4.0.10",
-    "@types/node": "20.11.28",
+    "@types/node": "22.7.3",
     "@types/semantic-release": "20.0.6",
-    "@types/validator": "13.11.9",
-    "husky": "9.0.11",
-    "lint-staged": "15.2.2",
-    "prettier": "3.2.5",
-    "rimraf": "5.0.5",
-    "semantic-release": "23.0.3",
-    "syncpack": "12.3.0",
-    "typescript": "5.4.2",
-    "vitest": "1.4.0"
+    "@types/validator": "13.12.2",
+    "husky": "9.1.6",
+    "lint-staged": "15.2.10",
+    "prettier": "3.3.3",
+    "rimraf": "6.0.1",
+    "semantic-release": "24.1.1",
+    "syncpack": "13.0.0",
+    "typescript": "5.6.2",
+    "vitest": "2.1.1"
   },
   "files": [
     "package.json",
@@ -48,12 +48,12 @@
   "main": "github-publish.js",
   "peerDependencies": {
     "@semantic-release/changelog": ">=6.0.0",
-    "@semantic-release/commit-analyzer": ">=12.0.0",
+    "@semantic-release/commit-analyzer": ">=13.0.0",
     "@semantic-release/git": ">=10.0.0",
-    "@semantic-release/github": ">=10.0.0",
+    "@semantic-release/github": ">=11.0.0",
     "@semantic-release/npm": ">=12.0.0",
-    "@semantic-release/release-notes-generator": ">=12.0.0",
-    "semantic-release": ">=23.0.0"
+    "@semantic-release/release-notes-generator": ">=14.0.0",
+    "semantic-release": ">=24.0.0"
   },
   "publishConfig": {
     "access": "public"
