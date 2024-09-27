@@ -1,3 +1,16 @@
+## [1.0.2](https://github.com/capitnflam/semantic-release-configs/compare/v1.0.1...v1.0.2) (2024-09-27)
+
+
+### chore
+
+* **deps:** update packages (#19) ([24ec624](https://github.com/capitnflam/semantic-release-configs/commit/24ec624328c6a6e4f7d9573eddc007409d4d32ea))
+
+
+### fix
+
+* immutable object modification (#21) ([720c5a5](https://github.com/capitnflam/semantic-release-configs/commit/720c5a5dbdfde5b7b0132a2519f9a0748ea4e994))
+* proper transform function? (#23) ([e3b97e7](https://github.com/capitnflam/semantic-release-configs/commit/e3b97e7804529095e833eefee49231f794f56eab))
+
 ## [1.0.1](https://github.com/capitnflam/semantic-release-configs/compare/v1.0.0...v1.0.1) (2024-03-21)
 
 
