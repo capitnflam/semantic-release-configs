@@ -5,7 +5,6 @@ import { isTypes, types } from './types'
 
 const COMMIT_HASH_LENGTH = 7
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
 export const transform: Options.Transform = (commit, context) => {
   const commitDiff: typeof commit = {} as typeof commit
 
@@ -23,7 +22,6 @@ export const transform: Options.Transform = (commit, context) => {
       (commit.notes && commit.notes.length > 0))
   ) {
     commitDiff['groupType'] =
-      // eslint-disable-next-line sonarjs/no-nested-template-literals
       `${types.types[commit.type].emoji ? `${types.types[commit.type].emoji} ` : ''}${
         types.types[commit.type].title
       }`
