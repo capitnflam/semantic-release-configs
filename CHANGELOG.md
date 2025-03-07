@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/capitnflam/semantic-release-configs/compare/v1.0.2...v1.0.3) (2025-03-07)
+
+
+### chore
+
+* **deps:** update dependencies (#37) ([bb4afe3](https://github.com/capitnflam/semantic-release-configs/commit/bb4afe39cf73691e3fc1e654b0dc47ffa6b13546))
+
 ## [1.0.2](https://github.com/capitnflam/semantic-release-configs/compare/v1.0.1...v1.0.2) (2024-09-27)
 
 
