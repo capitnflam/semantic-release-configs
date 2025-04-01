@@ -23,7 +23,7 @@
     "@commitlint/types": "19.8.0",
     "@flaminc/eslint-plugin": "1.7.0",
     "@types/conventional-changelog-writer": "4.0.10",
-    "@types/node": "22.13.9",
+    "@types/node": "22.13.16",
     "@types/semantic-release": "20.0.6",
     "@types/validator": "13.12.2",
     "husky": "9.1.7",
